@@ -1,0 +1,124 @@
+:root{
+    --verde-claro: #90EE90;
+    --bege-claro: #F5F5DC;
+    --verde-escuro: #228B22;
+    --branco: #ffffff;
+    --sombra: 0 6px 20px rgba(0,0,0,0.12);
+    --max-width: 1100px;
+}
+
+/* Reset simples */
+*{box-sizing: border-box;margin:0;padding:0}
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bege-claro);
+    color: #222;
+    line-height: 1.5;
+}
+
+/* Header */
+header{
+    background: linear-gradient(135deg, var(--verde-claro), var(--verde-escuro));
+    padding: 36px 20px;
+    text-align: center;
+    position: relative;
+    color: var(--branco);
+    box-shadow: var(--sombra);
+}
+.header-inner{max-width:var(--max-width);margin:0 auto}
+header h1{font-size:2.4rem;display:inline-flex;gap:10px;align-items:center}
+.slogan{font-style:italic;margin-top:8px;opacity:0.95}
+
+/* Nav */
+.main-nav{
+    display:flex;
+    gap:12px;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    padding:12px;
+    background-color:var(--verde-escuro);
+    position:sticky;
+    top:0;
+    z-index:90;
+    box-shadow:var(--sombra);
+}
+.main-nav a{color:var(--branco);text-decoration:none;padding:8px 12px;border-radius:22px;transition:all .2s;font-weight:500}
+.main-nav a:hover{background:var(--verde-claro);color:var(--verde-escuro);transform:translateY(-3px)}
+.login-dropdown{position:relative;display:inline-block}
+.login-dropdown .dropdown-content{
+    display:none;position:absolute;top:110%;left:0;background:var(--branco);color:var(--verde-escuro);
+    box-shadow:var(--sombra);padding:8px;border-radius:8px;min-width:180px
+}
+.login-dropdown:hover .dropdown-content{display:block}
+.login-dropdown .dropdown-content a{display:block;padding:8px;color:var(--verde-escuro);text-decoration:none}
+.login-dropdown .dropdown-content a:hover{background:var(--bege-claro)}
+
+/* Sections */
+.section{max-width:var(--max-width);margin:28px auto;padding:20px}
+.card{background:var(--branco);border-radius:12px;padding:20px;box-shadow:var(--sombra)}
+.center{text-align:center}
+.icon-large{font-size:48px;color:var(--verde-escuro);margin-bottom:8px}
+
+/* Quem-somos layout */
+#quem-somos{display:flex;gap:20px;align-items:center}
+.quem-somos-img img{width:360px;height:220px;object-fit:cover;border-radius:10px;box-shadow:var(--sombra)}
+#quem-somos .content{flex:1}
+
+/* Grid para cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:12px}
+.subsecao{padding:16px;border-radius:10px;border-top:4px solid var(--verde-claro)}
+
+/* Parceiros */
+.parceiros-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px;margin-top:16px;align-items:center}
+.parceiro-logo{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:12px;border-radius:10px;background:#f7f7f7}
+.parceiro-logo img{width:120px;height:80px;object-fit:contain;border-radius:6px}
+
+/* CTA buttons */
+.cta-buttons{display:flex;gap:12px;justify-content:center;margin-top:12px}
+.btn{
+    background:var(--verde-escuro);
+    color:var(--branco);
+    padding:10px 16px;
+    border-radius:8px;
+    border:none;
+    cursor:pointer;
+    transition:all .18s;
+    font-weight:600;
+}
+.btn:hover{transform:translateY(-3px);opacity:0.95}
+.btn.outline{background:transparent;border:2px solid var(--verde-escuro);color:var(--verde-escuro)}
+.btn.small{padding:8px 10px;font-size:.9rem}
+
+/* Modal */
+.modal{display:none;position:fixed;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,0.45);z-index:200;align-items:center;justify-content:center;padding:20px}
+.modal[aria-hidden="false"]{display:flex}
+.modal-content{background:var(--branco);width:100%;max-width:420px;border-radius:12px;padding:20px;position:relative;box-shadow:var(--sombra)}
+.close{position:absolute;right:12px;top:8px;font-size:26px;background:none;border:none;cursor:pointer;color:#666}
+
+/* Tabs inside modal */
+.tab-buttons{display:flex;gap:8px;margin-bottom:12px}
+.tab-btn{flex:1;padding:10px;border-radius:8px;border:1px solid #eee;background:transparent;cursor:pointer}
+.tab-btn.active{background:var(--verde-claro);color:var(--verde-escuro);font-weight:700}
+.tab-content{display:none}
+.tab-content.active{display:block}
+form{display:flex;flex-direction:column;gap:10px}
+input,select,button{padding:10px;border-radius:8px;border:2px solid #f0ede6}
+.muted{font-size:.9rem;color:#666;margin-top:8px}
+
+/* Footer */
+footer{background:linear-gradient(135deg,var(--verde-escuro),var(--verde-claro));color:var(--branco);padding:28px 16px;margin-top:36px}
+.footer-inner{display:flex;gap:20px;max-width:var(--max-width);margin:0 auto;align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
+.footer-left, .footer-center, .footer-right{flex:1;min-width:220px}
+.footer-left h3{display:flex;gap:8px;align-items:center}
+.contato p{margin:6px 0}
+.socials a{display:inline-block;margin-right:12px;color:var(--branco);text-decoration:none}
+.footer-bottom{text-align:center;margin-top:16px;opacity:.95}
+
+/* Responsivo */
+@media(max-width:900px){
+    #quem-somos{flex-direction:column;text-align:center}
+    .quem-somos-img img{width:100%;max-width:480px}
+    .cta-buttons{flex-direction:column}
+    .footer-inner{flex-direction:column;align-items:center}
+}
