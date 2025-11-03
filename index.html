@@ -1,23 +1,27 @@
 <nav class="main-nav">
-    <a href="#quem-somos" onclick="scrollToSection('quem-somos')"><i class="fas fa-users"></i> Quem Somos</a>
-    <a href="#proposito" onclick="scrollToSection('proposito')"><i class="fas fa-lightbulb"></i> O Propósito</a>
-    <a href="#como-funciona" onclick="scrollToSection('como-funciona')"><i class="fas fa-cogs"></i> Como Funciona</a>
-    <a href="#parceiros" onclick="scrollToSection('parceiros')"><i class="fas fa-handshake"></i> Parceiros</a>
-    <a href="https://www.ecotrocas.com.br/loja" target="_blank"><i class="fas fa-store"></i> Loja</a>
+  <a href="#quem-somos" onclick="scrollToSection('quem-somos')"><i class="fas fa-users"></i> Quem Somos</a>
+  <a href="#proposito" onclick="scrollToSection('proposito')"><i class="fas fa-lightbulb"></i> O Propósito</a>
+  <a href="#como-funciona" onclick="scrollToSection('como-funciona')"><i class="fas fa-cogs"></i> Como Funciona</a>
+  <a href="#parceiros" onclick="scrollToSection('parceiros')"><i class="fas fa-handshake"></i> Parceiros</a>
+  <a href="https://www.ecotrocas.com.br/loja" target="_blank"><i class="fas fa-store"></i> Loja</a>
 
-    <div class="login-dropdown" id="loginDropdown">
-        <a href="#" class="nav-btn login-btn" onclick="openModal(event)"><i class="fas fa-user"></i> 
-            <span id="loginLabel">Entrar / Criar Conta</span>
-        </a>
-        <div class="dropdown-content" id="loginMenu">
-            <a href="#" onclick="openModal(event,'pessoa')"><i class="fas fa-user"></i> Para Pessoas</a>
-            <a href="#" onclick="openModal(event,'empresa')"><i class="fas fa-building"></i> Para Empresas</a>
-        </div>
-        <div class="dropdown-content" id="userMenu" style="display:none;">
-            <a href="#" id="userNameDisplay" style="pointer-events:none;"><i class="fas fa-user-circle"></i> <span id="userName"></span></a>
-            <a href="#" onclick="logoutUser()"><i class="fas fa-unlink"></i> Desvincular Conta</a>
-        </div>
+  <div class="login-dropdown" id="loginDropdown">
+    <a href="#" class="nav-btn login-btn" onclick="openModal(event)">
+      <i class="fas fa-user"></i> <span id="loginLabel">Entrar / Criar Conta</span>
+    </a>
+
+    <div class="dropdown-content" id="loginMenu">
+      <a href="#" onclick="openModal(event,'pessoa')"><i class="fas fa-user"></i> Para Pessoas</a>
+      <a href="#" onclick="openModal(event,'empresa')"><i class="fas fa-building"></i> Para Empresas</a>
     </div>
 
-    <a href="#contato" onclick="scrollToSection('footer')"><i class="fas fa-envelope"></i> Contato</a>
+    <div class="dropdown-content" id="userMenu" style="display:none;">
+      <a href="#" id="userNameDisplay" style="pointer-events:none;">
+        <i class="fas fa-user-circle"></i> <span id="userName"></span>
+      </a>
+      <a href="#" onclick="logoutUser()"><i class="fas fa-unlink"></i> Desvincular Conta</a>
+    </div>
+  </div>
+
+  <a href="#contato" onclick="scrollToSection('footer')"><i class="fas fa-envelope"></i> Contato</a>
 </nav>
