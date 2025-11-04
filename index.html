@@ -1,27 +1,346 @@
-<nav class="main-nav">
-  <a href="#quem-somos" onclick="scrollToSection('quem-somos')"><i class="fas fa-users"></i> Quem Somos</a>
-  <a href="#proposito" onclick="scrollToSection('proposito')"><i class="fas fa-lightbulb"></i> O Propósito</a>
-  <a href="#como-funciona" onclick="scrollToSection('como-funciona')"><i class="fas fa-cogs"></i> Como Funciona</a>
-  <a href="#parceiros" onclick="scrollToSection('parceiros')"><i class="fas fa-handshake"></i> Parceiros</a>
-  <a href="https://www.ecotrocas.com.br/loja" target="_blank"><i class="fas fa-store"></i> Loja</a>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Loiane Training</title>
+  <link rel="shortcut icon" href="assets/LogoLoiane.png" type="image/x-icon">
 
-  <div class="login-dropdown" id="loginDropdown">
-    <a href="#" class="nav-btn login-btn" onclick="openModal(event)">
-      <i class="fas fa-user"></i> <span id="loginLabel">Entrar / Criar Conta</span>
-    </a>
+  <!-- Seu CSS (assumindo que existe em css/style.css) -->
+  <link rel="stylesheet" href="css/style.css">
 
-    <div class="dropdown-content" id="loginMenu">
-      <a href="#" onclick="openModal(event,'pessoa')"><i class="fas fa-user"></i> Para Pessoas</a>
-      <a href="#" onclick="openModal(event,'empresa')"><i class="fas fa-building"></i> Para Empresas</a>
+  <!-- Font Awesome (usando versão moderna) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Swiper (apenas um link) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <!-- Demais css locais -->
+  <link rel="stylesheet" href="css/comentarios.css" />
+  <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
+
+  <!-- Sienna widget (defer) -->
+  <script src="https://website-widgets.pages.dev/dist/sienna.min.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <!-- nav (substituído e organizado) -->
+    <nav class="main-nav">
+      <!-- logo -->
+      <a href="index.html"><img class="logo" src="assets/loiane-training-logo-branca.png" alt="loiane training"></a>
+
+      <!-- links principais -->
+      <div class="nav-links" id="navLinks">
+        <i class="fa fa-times" onclick="hideMenu()"></i>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="cursos/cursos copy.html">Cursos</a></li>
+          <li><a href="html/sobre.html">Sobre</a></li>
+
+          <!-- Login / Usuário -->
+          <li>
+            <div class="login-dropdown" id="loginDropdown">
+              <a href="#" class="nav-btn login-btn" onclick="openLoginMenu(event)">
+                <i class="fas fa-user"></i>
+                <span id="loginLabel">ENTRAR</span>
+              </a>
+
+              <!-- menu para quando não logado -->
+              <div class="dropdown-content" id="loginMenu" aria-hidden="false">
+                <a href="./html/login.html" onclick=""><i class="fas fa-user"></i> Para Pessoas</a>
+                <a href="#" onclick="openModalEmpresa()"><i class="fas fa-building"></i> Para Empresas</a>
+              </div>
+
+              <!-- menu para quando logado (escondido por padrão) -->
+              <div class="dropdown-content" id="userMenu" style="display:none;">
+                <a href="#" id="userNameDisplay" style="pointer-events:none;">
+                  <i class="fas fa-user-circle"></i> <span id="userName"></span>
+                </a>
+                <a href="#" onclick="logoutUser()"><i class="fas fa-unlink"></i> Desvincular Conta</a>
+              </div>
+            </div>
+          </li>
+
+          <li><a href="#contato" onclick="scrollToSection('footer')"><i class="fas fa-envelope"></i> Contato</a></li>
+        </ul>
+      </div>
+
+      <!-- ícone hamburguer para mobile -->
+      <i class="fa fa-bars" onclick="showMenu()"></i>
+    </nav>
+
+    <div class="caixa-texto">
+      <h1>Angular, Java, Spring e mais...</h1>
+      <p>cursos online e gratuitos com certificado de participação!</p>
+      <a href="#cursos" class="hero-btn" id="btn-saiba-mais">Saiba Mais</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ... mantém seu conteúdo original (cursos, depoimentos, etc.) ... -->
+    <!-- Copie aqui todo o conteúdo das seções Cursos, Portal, Depoimentos etc. -->
+    <!-- (Para evitar repetir tudo aqui, mantenha o resto do seu index exatamente como estava.) -->
+    <!-- Abaixo inclui as seções que você já tinha no seu arquivo original. -->
+
+    <section class="cursos" id="cursos">
+      <div class="container swiper">
+        <h2 class="titulo-cursos">Cursos disponíveis</h2>
+        <div class="wrapper">
+          <div class="card-list swiper-wrapper">
+            <!-- cards (mantidos conforme seu original) -->
+            <!-- ... (seu bloco de cards aqui) ... -->
+
+            <!-- Exemplo de primeiro card (copie os demais do seu arquivo original) -->
+            <div class="card swiper-slide">
+              <div class="card-image">
+                <img src="cursosAssets/Angular.png" alt="Curso Angular" />
+                <div class="card-tag">Front-end</div>
+              </div>
+              <div class="card-content">
+                <h3 class="card-title">Angular</h3>
+                <p class="card-text">Neste curso, você aprenderá a desenvolver com Angular e TypeScript...</p>
+                <div class="card-footer">
+                  <a href="cursos/cursos copy.html" class="card-button">Saiba Mais</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- ... demais cards ... -->
+
+          </div>
+
+          <div class="swiper-pagination"></div>
+          <div class="swiper-slide-button swiper-button-prev"></div>
+          <div class="swiper-slide-button swiper-button-next"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- mantenha as outras seções (parceria, portal, comentarios) conforme estavam -->
+    <!-- ... -->
+  </main>
+
+  <!-- SVG e footer (mantenha igual ao original) -->
+  <svg width="100%" height="100%" id="svg" viewBox="0 0 1440 390" xmlns="http://www.w3.org/2000/svg" class="transition duration-300 ease-in-out delay-150">
+    <path d="M 0,400 L 0,150 C 127.85714285714286,169.21428571428572 255.71428571428572,188.42857142857142 366,198 C 476.2857142857143,207.57142857142858 568.9999999999999,207.5 686,188 C 803.0000000000001,168.5 944.2857142857142,129.57142857142856 1074,120 C 1203.7142857142858,110.42857142857143 1321.857142857143,130.21428571428572 1440,150 L 1440,400 L 0,400 Z" stroke="none" stroke-width="0" fill="#350351" fill-opacity="1" class="transition-all duration-300 ease-in-out delay-150 path-0"></path>
+  </svg>
+
+  <footer id="footer">
+    <div class="content">
+      <div class="top">
+        <div class="logo-details">
+          <img class="logofooter" src="assets/loiane-training-logo-branca.png" alt="">
+        </div>
+        <div class="media-icons">
+          <a href="https://x.com/loiane" target="_blank"><img class="socials" src="assetsRedesocial/twitter-logo-black-outline-20846.png" alt=""></a>
+          <a href="https://github.com/loiane" target="_blank"><img class="socials github" src="assetsRedesocial/github-logo-6532.png" alt=""></a>
+          <a href="https://www.youtube.com/loianegroner" target="_blank"><img class="socials" src="assetsRedesocial/youtube-123.png" alt=""></a>
+          <a href="https://www.facebook.com/loiane" target="_blank"><img class="socials" src="assetsRedesocial/facebook-logo-108.png" alt=""></a>
+          <a href="https://www.linkedin.com/in/loiane" target="_blank"><img class="socials" src="assetsRedesocial/linkedin-112.png" alt=""></a>
+        </div>
+      </div>
+
+      <div class="link-boxes">
+        <ul class="box">
+          <li class="link_name">Cursos</li>
+          <li><a href="cursos/cursos copy.html">Java Básico</a></li>
+          <li><a href="cursos/cursos copy.html">Java Intermediário</a></li>
+          <li><a href="cursos/cursos copy.html">Estrutura de Dados com Java</a></li>
+          <li><a href="cursos/cursos copy.html">Angular</a></li>
+          <li><a href="cursos/cursos copy.html">Phonegap e Apache Cordova</a></li>
+          <li><a href="cursos/cursos copy.html">CRUD Angular + Spring</a></li>
+          <li><a href="cursos/cursos copy.html">Fundamentos Ext JS 4</a></li>
+        </ul>
+
+        <ul class="box input-box">
+          <li class="link_name">Inscreva-se</li>
+          <li><input type="text" placeholder="Digite seu e-mail"></li>
+          <li><input type="button" value="Inscreva-se"></li>
+        </ul>
+      </div>
     </div>
 
-    <div class="dropdown-content" id="userMenu" style="display:none;">
-      <a href="#" id="userNameDisplay" style="pointer-events:none;">
-        <i class="fas fa-user-circle"></i> <span id="userName"></span>
-      </a>
-      <a href="#" onclick="logoutUser()"><i class="fas fa-unlink"></i> Desvincular Conta</a>
+    <div class="bottom-details">
+      <div class="bottom_text">
+        <span class="copyright_text">Copyright © 2025 <a href="#">Códice.</a> Todos os direitos reservados.</span>
+        <span class="policy_terms"></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- TTS button e estilos inline (mantive seu original) -->
+  <style>
+    #toggleReader { position: fixed; bottom: 20px; right: 20px; background-color: #0080ff; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 20px; cursor: pointer; z-index: 9999; box-shadow: 0 4px 10px rgba(0,0,0,0.3); display:flex; align-items:center; justify-content:center; transition: background-color 0.3s ease; }
+    #toggleReader.ativo { background-color: #00c853; }
+    .tts { width: 32px; object-fit: contain; }
+    .tts-alerta { position: fixed; bottom: 90px; right: 20px; background-color: #323232; color: white; padding: 12px 18px; border-radius: 8px; font-size: 14px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); z-index: 9999; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+    .tts-alerta.visivel { opacity: 1; pointer-events: auto; }
+    .texto-tts:hover { cursor: pointer; text-decoration: underline; transition: text-decoration 0.3s ease; }
+  </style>
+
+  <button id="toggleReader" title="Ativar leitura por clique">
+    <img class="tts" src="cursosAssets/tts.png" alt="">
+  </button>
+  <div id="ttsAlerta" class="tts-alerta"></div>
+
+  <!-- SCRIPTS -->
+  <!-- Swiper (um script) -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Seus scripts locais (assumindo javascript/script.js e javascript/comentario.js) -->
+  <script src="javascript/script.js"></script>
+  <script src="javascript/comentario.js"></script>
+
+  <!-- VLibras -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
     </div>
   </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
 
-  <a href="#contato" onclick="scrollToSection('footer')"><i class="fas fa-envelope"></i> Contato</a>
-</nav>
+  <!-- Script de interação (login/localStorage, menu mobile, TTS) -->
+  <script>
+    // Mobile menu
+    var navLinks = document.getElementById("navLinks");
+    function showMenu() { navLinks.style.right = "0"; }
+    function hideMenu() { navLinks.style.right = "-200px"; }
+
+    // Abre menu de login (pode abrir um modal real ou redirecionar)
+    function openLoginMenu(e) {
+      e.preventDefault();
+      // Se já estiver logado, não abrir o loginMenu
+      const userName = localStorage.getItem('userName');
+      if (userName) {
+        // se quiser abrir dropdown personalizado, implementar aqui
+        return;
+      }
+      // toggla visibilidade simples do loginMenu
+      const loginMenu = document.getElementById('loginMenu');
+      if (loginMenu.style.display === 'block') loginMenu.style.display = 'none';
+      else loginMenu.style.display = 'block';
+    }
+
+    function openModalEmpresa() {
+      alert('Abrir modal/cadastro para empresas (implemente seu modal aqui).');
+    }
+
+    // Atualiza UI do menu com base no localStorage
+    function atualizarLoginUI() {
+      const userName = localStorage.getItem('userName');
+      const loginLabel = document.getElementById('loginLabel');
+      const loginMenu = document.getElementById('loginMenu');
+      const userMenu = document.getElementById('userMenu');
+      const userNameDisplay = document.getElementById('userName');
+
+      if (userName) {
+        loginLabel.textContent = userName;
+        loginMenu.style.display = 'none';
+        userMenu.style.display = 'block';
+        userNameDisplay.textContent = userName;
+      } else {
+        loginLabel.textContent = 'ENTRAR';
+        loginMenu.style.display = 'none'; // manter escondido até clicar
+        userMenu.style.display = 'none';
+        userNameDisplay.textContent = '';
+      }
+    }
+
+    // Função de logout/desvincular
+    function logoutUser() {
+      if (confirm('Deseja desvincular sua conta?')) {
+        localStorage.removeItem('userName');
+        localStorage.removeItem('loginEmail');
+        alert('Conta desvinculada com sucesso!');
+        atualizarLoginUI();
+        // se preferir recarregar: location.reload();
+      }
+    }
+
+    // Scroll suave para seções
+    function scrollToSection(id) {
+      const section = document.getElementById(id);
+      if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // TTS (mantive seu código)
+    (function () {
+      let leituraAtiva = false;
+      const toggleBtn = document.getElementById('toggleReader');
+      const alerta = document.getElementById('ttsAlerta');
+
+      function bloquearLinks(event) { event.preventDefault(); }
+      function mostrarAlerta(mensagem) {
+        alerta.textContent = mensagem;
+        alerta.classList.add('visivel');
+        setTimeout(() => alerta.classList.remove('visivel'), 3000);
+      }
+      function falarMensagem(mensagem) {
+        const aviso = new SpeechSynthesisUtterance(mensagem);
+        aviso.lang = 'pt-BR';
+        speechSynthesis.cancel();
+        speechSynthesis.speak(aviso);
+      }
+      function leituraPorClique(event) {
+        let selecionado = event.target;
+        if (selecionado.closest) {
+          const linkPai = selecionado.closest('a');
+          if (linkPai) selecionado = linkPai;
+        }
+        if (['BUTTON', 'INPUT', 'TEXTAREA', 'SELECT'].includes(selecionado.tagName)) return;
+        const texto = selecionado.innerText || selecionado.textContent;
+        if (!texto.trim()) return;
+        const utterance = new SpeechSynthesisUtterance(texto);
+        utterance.lang = 'pt-BR';
+        speechSynthesis.cancel();
+        speechSynthesis.speak(utterance);
+        event.stopPropagation();
+        event.preventDefault();
+      }
+
+      toggleBtn.addEventListener('click', () => {
+        leituraAtiva = !leituraAtiva;
+        const elementos = document.querySelectorAll('p, span, li, h1, h2, h3, h4, h5, h6, a');
+
+        if (leituraAtiva) {
+          elementos.forEach(el => el.classList.add('texto-tts'));
+          document.querySelectorAll('a').forEach(link => link.addEventListener('click', bloquearLinks));
+          document.body.addEventListener('click', leituraPorClique);
+          toggleBtn.classList.add('ativo');
+          mostrarAlerta('Leitura por clique ativada.');
+          falarMensagem('Leitura por clique ativada.');
+        } else {
+          elementos.forEach(el => el.classList.remove('texto-tts'));
+          document.querySelectorAll('a').forEach(link => link.removeEventListener('click', bloquearLinks));
+          document.body.removeEventListener('click', leituraPorClique);
+          toggleBtn.classList.remove('ativo');
+          mostrarAlerta('Leitura por clique desativada.');
+          falarMensagem('Leitura por clique desativada.');
+        }
+      });
+    })();
+
+    // onload
+    document.addEventListener('DOMContentLoaded', function () {
+      atualizarLoginUI();
+
+      // "Saiba mais" scroll suave se existir
+      var saibaMais = document.getElementById('btn-saiba-mais');
+      if (saibaMais) {
+        saibaMais.addEventListener('click', function (e) {
+          e.preventDefault();
+          var target = document.getElementById('cursos');
+          if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      }
+    });
+
+  </script>
+
+</body>
+</html>
